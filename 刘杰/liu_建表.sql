@@ -46,7 +46,8 @@ create table Teacher(
   teacherTypeId number(5),  --教师类型id
   name nvarchar2(20),  --教师名字
   idNumber varchar2(18),  --身份证号
-  address nvarchar2(100)  --家庭住址
+  address nvarchar2(100),  --家庭住址
+  hireDate date  --入职日期
 );
 --教学楼
 create table TeachBuild(
@@ -107,7 +108,8 @@ create table Score(
   dailyScore number(3),  --平时成绩
   examScore number(3),  --期末考试成绩
   totalScore number(3), --学期总分
-  selectTime date  --选修时间
+  selectTime date,  --选修时间
+  isPass number(1)  --是否补考
 );
 --用户
 create table User(
