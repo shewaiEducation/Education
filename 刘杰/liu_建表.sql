@@ -28,8 +28,6 @@ create table CourseType(
 --课程
 create table Course(
   id varchar2(10) primary key,  --课程编号
-  majorId varchar2(10),  --开课专业
-  term number(2),  --开课学期
   typeId number(5),  --课程类型
   name nvarchar2(20),  --课程名字
   totalHours number(2),  --总课时
@@ -39,6 +37,21 @@ create table Course(
   weekHours number(2),  --周课时
   note nvarchar2(200),  --备注
   CONSTRAINT UQ_COURSE_NAME UNIQUE (NAME)
+);
+--专业&课程
+create table MajorCourse(
+  id number(10),  --逻辑主键
+  courseId varchar2(10),  --课程编号
+  majorId varchar2(10),  --开课专业
+  term  number(2)  --开课学期
+);
+--专业&课程，被选择
+create table MajorCourseSelected(
+  id number(10),  --逻辑主键
+  courseId varchar2(10),  --课程编号
+  majorId varchar2(10),  --开课专业
+  term  number(2),  --开课学期
+  grade varchar2(10)  --年级
 );
 --教师类型
 create table TeacherType(
@@ -73,9 +86,9 @@ create table Arrangement(
 --授课班级(教师&班级)
 create table TeacherClass(
   id number(10) primary key,  --逻辑主键
-  teacherId varchar2(10),  --教师工号
+  arrangementId number(10),  --授课安排id
   classId varchar2(10),  --班级编号
-  teachTime date  --授课时间
+  teachTime date  --授课时间(哪一年)
 );
 --学生
 create table Student(
