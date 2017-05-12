@@ -31,10 +31,7 @@ create table Course(
   typeId number(5),  --课程类型
   name nvarchar2(20),  --课程名字
   totalHours number(2),  --总课时
-  teachHours number(2),  --讲授课时
-  practiceHours number(2),  --实践课时
   credit number(2),  --学分
-  weekHours number(2),  --周课时
   note nvarchar2(200),  --备注
   CONSTRAINT UQ_COURSE_NAME UNIQUE (NAME)
 );
@@ -71,23 +68,23 @@ create table Teacher(
   nation nvarchar2(10),  --民族
   address nvarchar2(100)  --家庭住址
 );
---授课安排(课程&教师&教学楼&教室&星期&节数) 检查约束、联合索引
+--授课安排(课程&教师&教学楼&教室) 检查约束、联合索引
 create table Arrangement(
   id number(10) primary key,  --逻辑主键
   courseId varchar2(10),  --课程编号
   teacherId varchar2(10),  --教师工号
   teachBuild number(5),  --教学楼
-  classRoom varchar2(5), --教室
-  week nvarchar2(10),  --星期
-  lesson nvarchar2(10),  --节数
-  startWeek number(2),  --开始周数
-  endWeek number(2)  --结束周数
+  classRoom varchar2(5) --教室
 );
---授课班级(教师&班级)
+--授课班级(教师&班级&星期&节数)
 create table TeacherClass(
   id number(10) primary key,  --逻辑主键
   arrangementId number(10),  --授课安排id
   classId varchar2(10),  --班级编号
+  startWeek number(2),  --开始周数
+  endWeek number(2),  --结束周数
+  week nvarchar2(10),  --星期
+  lesson nvarchar2(10),  --节数
   teachTime date  --授课时间(哪一年)
 );
 --学生
@@ -102,11 +99,24 @@ create table Student(
   nation nvarchar2(10),  --民族
   address nvarchar2(100)  --家庭住址
 );
+--选修课班级
+create table ClassSelected(
+  id number(10) primary key,  --逻辑主键
+  arrangementId number(10),  --授课安排id
+  classId varchar2(10),  --班级编号
+  startWeek number(2),  --开始周数
+  endWeek number(2),  --结束周数
+  week nvarchar2(10),  --星期
+  lesson nvarchar2(10),  --节数
+  teachTime date,  --授课时间(哪一年)
+  studentNum number(3),  --班级人数
+  studentSelected number(3)  --选择人数
+);
 --学生所在班级(学生&班级)
-create table InClass(
+create table InClassSelected(
   id number(10) primary key,  --逻辑主键
   studentId varchar2(10),  --学号
-  classId varchar2(10)  --班级编号
+  classSelectedId varchar2(10)  --选修课班级编号
 );
 --成绩(学生&课程)
 create table Score(
@@ -117,7 +127,8 @@ create table Score(
   examScore number(3),  --期末考试成绩
   totalScore number(3), --学期总分
   selectTime date,  --选修时间
-  isPass number(1)  --是否补考
+  isPass number(1),  --是否补考
+  isCommit number(1)  --是否提交
 );
 --用户
 create table User(
