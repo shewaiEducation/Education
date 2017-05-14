@@ -1,17 +1,20 @@
 package com.edu.pojo;
 
 /**
- * Classroom entity. @author MyEclipse Persistence Tools
+ * javaBean:Classroom 
+ * @author Shr
+ * @since 2017-05-14
  */
 
-public class Classroom implements java.io.Serializable {
+public class ClassRoom implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
+	/** classroom name */
 	private String name;
 
 	// Constructors
 
 	/** default constructor */
-	public Classroom() {
+	public ClassRoom() {
 	}
 
 	// Property accessors

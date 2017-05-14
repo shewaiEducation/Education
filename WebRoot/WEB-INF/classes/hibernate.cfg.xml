@@ -15,6 +15,17 @@
     	
     	<property name="show_sql">true</property>
     	<property name="format_sql">false</property>
+    	
+    	
+    	<mapping resource="com/edu/pojo/College.hbm.xml" />
+    	<mapping resource="com/edu/pojo/Major.hbm.xml" />
+    	<mapping resource="com/edu/pojo/Class.hbm.xml" />
+    	<mapping resource="com/edu/pojo/CourseType.hbm.xml" />
+    	<mapping resource="com/edu/pojo/Course.hbm.xml" />
+    	<mapping resource="com/edu/pojo/MajorCourse.hbm.xml" />
+    	<mapping resource="com/edu/pojo/MajorCourseSelected.hbm.xml" />
+    	
+    	
     </session-factory>
 
 </hibernate-configuration>

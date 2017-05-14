@@ -1,13 +1,22 @@
 package com.edu.pojo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
- * College entity. @author MyEclipse Persistence Tools
+ * javaBean:College 
+ * @author Shr
+ * @since 2017-05-14
  */
 
 public class College implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
+	/** college serial number */
 	private String id;
+	/** college name */
 	private String name;
+	/** all of the college major */
+	private Set<Major> majors = new HashSet<Major>();
 
 	// Constructors
 
@@ -36,6 +45,14 @@ public class College implements java.io.Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Set<Major> getMajors() {
+		return majors;
+	}
+
+	public void setMajors(Set<Major> majors) {
+		this.majors = majors;
 	}
 
 }

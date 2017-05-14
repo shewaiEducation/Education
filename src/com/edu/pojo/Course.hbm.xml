@@ -8,15 +8,12 @@
     <class name="com.edu.pojo.Course" table="COURSE" schema="SCOTT">
         <id name="id" type="java.lang.String">
             <column name="ID" length="10" />
-            <generator class="native" />
+            <generator class="assigned" />
         </id>
-        <property name="typeid" type="java.lang.Integer">
-            <column name="TYPEID" precision="5" scale="0" />
-        </property>
         <property name="name" type="java.lang.String">
             <column name="NAME" unique="true" />
         </property>
-        <property name="totalhours" type="java.lang.Integer">
+        <property name="totalHours" type="java.lang.Integer">
             <column name="TOTALHOURS" precision="2" scale="0" />
         </property>
         <property name="credit" type="java.lang.Integer">
@@ -25,5 +22,18 @@
         <property name="note" type="java.lang.String">
             <column name="NOTE" />
         </property>
+        
+        <many-to-one name="courseType" column="typeId" class="com.edu.pojo.CourseType"></many-to-one>
+
+		<set name="majorCourses" inverse="true">
+        	<key column="courseId"></key>
+        	<one-to-many class="com.edu.pojo.MajorCourse" />
+        </set>
+        
+        <set name="majorCourseSels" inverse="true">
+        	<key column="courseId"></key>
+        	<one-to-many class="com.edu.pojo.MajorCourseSelected" />
+        </set>
+        
     </class>
 </hibernate-mapping>

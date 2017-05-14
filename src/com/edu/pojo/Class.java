@@ -3,61 +3,64 @@ package com.edu.pojo;
 import java.util.Date;
 
 /**
- * Class entity. @author MyEclipse Persistence Tools
+ * javaBean:Class 
+ * @author Shr
+ * @since 2017-05-14
  */
 
 public class Class implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
+	/** logic primary key */
 	private String id;
-	private String majorid;
+	/** major serial number */
+	private String majorId;
+	/** class name */
 	private String name;
-	private Date opentime;
+	/** class time */
+	private Date openTime;
+	/** which belong to the major */
+	private Major major;
 
-	// Constructors
-
-	/** default constructor */
 	public Class() {
 	}
 
-	/** full constructor */
-	public Class(String majorid, String name, Date opentime) {
-		this.majorid = majorid;
-		this.name = name;
-		this.opentime = opentime;
-	}
-
-	// Property accessors
-
 	public String getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(String id) {
 		this.id = id;
 	}
 
-	public String getMajorid() {
-		return this.majorid;
+	public String getMajorId() {
+		return majorId;
 	}
 
-	public void setMajorid(String majorid) {
-		this.majorid = majorid;
+	public void setMajorId(String majorId) {
+		this.majorId = majorId;
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public Date getOpentime() {
-		return this.opentime;
+	public Date getOpenTime() {
+		return openTime;
 	}
 
-	public void setOpentime(Date opentime) {
-		this.opentime = opentime;
+	public void setOpenTime(Date openTime) {
+		this.openTime = openTime;
 	}
 
+	public Major getMajor() {
+		return major;
+	}
+
+	public void setMajor(Major major) {
+		this.major = major;
+	}
 }

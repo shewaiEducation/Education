@@ -10,11 +10,13 @@ insert into Major values('01','04','电子商务');
 insert into Major values('02','04','软件工程');
 insert into Major values('03','04','计算机科学与技术');
 select * from Major;
+--truncate table major;
 --班级
 insert into Class values('1440301','03','计算机科学与技术1401班',date'2014-09-01');
 insert into Class values('1440302','03','计算机科学与技术1402班',date'2014-09-01');
 insert into Class values('1440303','03','计算机科学与技术1403班',date'2014-09-01');
 select * from Class;
+--truncate table Class;
 --课程类型
 drop sequence seq_courseType;
 create sequence seq_courseType 
@@ -29,9 +31,11 @@ insert into CourseType values(seq_courseType.Nextval,'专业限选课');
 insert into CourseType values(seq_courseType.Nextval,'专业任选课');
 insert into CourseType values(seq_courseType.Nextval,'实践教学');
 select * from CourseType;
+--truncate table CourseType;
 --课程
 insert into Course values('',null,'',null,null,'');
-
+select * from Course;
+--truncate table Course;
 --专业&课程
 drop sequence seq_MajorCourse;
 create sequence seq_MajorCourse 
@@ -39,6 +43,8 @@ start with 1
 minvalue 0 
 maxvalue 99999 
 increment by 1;
+
+select * from MajorCourse;
 --专业&课程，被选择
 drop sequence seq_MajorCourseSelected;
 create sequence seq_MajorCourseSelected 
@@ -46,6 +52,8 @@ start with 1
 minvalue 0 
 maxvalue 999999 
 increment by 1;
+
+select * from MajorCourseSelected;
 --教师类型
 drop sequence seq_teacherType;
 create sequence seq_teacherType 
@@ -98,6 +106,9 @@ start with 1
 minvalue 0 
 maxvalue 999999 
 increment by 1;
+
+insert into LoginUser values(seq_LoginUser.Nextval,'学生',学号,密码);
+insert into LoginUser values(seq_LoginUser.Nextval,'教师',学号,密码);
 --管理员
 drop sequence seq_Manager;
 create sequence seq_Manager 

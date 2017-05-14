@@ -1,69 +1,71 @@
 package com.edu.pojo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
- * Course entity. @author MyEclipse Persistence Tools
+ * javaBean:Course 
+ * @author Shr
+ * @since 2015-05-14
  */
 
 public class Course implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
+	/** course serial number */
 	private String id;
-	private Integer typeid;
+	/** which type serial number */
+	private Integer typeId;
+	/** course name */
 	private String name;
-	private Integer totalhours;
+	/** the course of total hours */
+	private Integer totalHours;
+	/** the course of credit */
 	private Integer credit;
+	/** note */
 	private String note;
-
-	// Constructors
-
-	/** default constructor */
+	/** which belong to type */
+	private CourseType courseType;
+	/** which term which major */
+	private Set<MajorCourse> majorCourses = new HashSet<MajorCourse>();
+	private Set<MajorCourse> majorCourseSels = new HashSet<MajorCourse>();
+	
 	public Course() {
 	}
 
-	/** full constructor */
-	public Course(Integer typeid, String name, Integer totalhours, Integer credit, String note) {
-		this.typeid = typeid;
-		this.name = name;
-		this.totalhours = totalhours;
-		this.credit = credit;
-		this.note = note;
-	}
-
-	// Property accessors
-
 	public String getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(String id) {
 		this.id = id;
 	}
 
-	public Integer getTypeid() {
-		return this.typeid;
+	public Integer getTypeId() {
+		return typeId;
 	}
 
-	public void setTypeid(Integer typeid) {
-		this.typeid = typeid;
+	public void setTypeId(Integer typeId) {
+		this.typeId = typeId;
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public Integer getTotalhours() {
-		return this.totalhours;
+	public Integer getTotalHours() {
+		return totalHours;
 	}
 
-	public void setTotalhours(Integer totalhours) {
-		this.totalhours = totalhours;
+	public void setTotalHours(Integer totalHours) {
+		this.totalHours = totalHours;
 	}
 
 	public Integer getCredit() {
-		return this.credit;
+		return credit;
 	}
 
 	public void setCredit(Integer credit) {
@@ -71,11 +73,35 @@ public class Course implements java.io.Serializable {
 	}
 
 	public String getNote() {
-		return this.note;
+		return note;
 	}
 
 	public void setNote(String note) {
 		this.note = note;
+	}
+
+	public CourseType getCourseType() {
+		return courseType;
+	}
+
+	public void setCourseType(CourseType courseType) {
+		this.courseType = courseType;
+	}
+
+	public Set<MajorCourse> getMajorCourses() {
+		return majorCourses;
+	}
+
+	public void setMajorCourses(Set<MajorCourse> majorCourses) {
+		this.majorCourses = majorCourses;
+	}
+
+	public Set<MajorCourse> getMajorCourseSels() {
+		return majorCourseSels;
+	}
+
+	public void setMajorCourseSels(Set<MajorCourse> majorCourseSels) {
+		this.majorCourseSels = majorCourseSels;
 	}
 
 }

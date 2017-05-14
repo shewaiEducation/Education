@@ -8,16 +8,14 @@
     <class name="com.edu.pojo.Class" table="CLASS" schema="SCOTT">
         <id name="id" type="java.lang.String">
             <column name="ID" length="10" />
-            <generator class="native" />
+            <generator class="assigned" />
         </id>
-        <property name="majorid" type="java.lang.String">
-            <column name="MAJORID" length="10" />
-        </property>
         <property name="name" type="java.lang.String">
             <column name="NAME" unique="true" />
         </property>
-        <property name="opentime" type="java.util.Date">
+        <property name="openTime" type="java.util.Date">
             <column name="OPENTIME" length="7" />
         </property>
+        <many-to-one name="major" column="majorId" class="com.edu.pojo.Major"></many-to-one>
     </class>
 </hibernate-mapping>

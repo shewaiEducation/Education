@@ -1,15 +1,22 @@
 package com.edu.pojo;
 
 /**
- * Arrangement entity. @author MyEclipse Persistence Tools
+ * javaBean:Arrangement 
+ * @author Shr
+ * @since 2017-05-14
  */
 
 public class Arrangement implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
+	/** logic primary key */
 	private Integer id;
+	/** couse serial number */
 	private String courseId;
+	/** teacher serial number */
 	private String teacherId;
+	/** teaching building name */
 	private String teachBuild;
+	/** classroom name */
 	private String classRoom;
 	public Arrangement() {
 	}
