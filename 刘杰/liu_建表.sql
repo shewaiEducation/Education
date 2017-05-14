@@ -10,10 +10,11 @@ create table College(
 drop table Major;
 create table Major(
   id varchar2(10),  --专业编号
-  collegeId number(5),  --专业所属学院,外键
+  collegeId varchar2(10),  --专业所属学院,外键
   name nvarchar2(20),  --专业名称
   CONSTRAINT PK_MAJOR_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_MAJOR_NAME UNIQUE (NAME)
+  CONSTRAINT UQ_MAJOR_NAME UNIQUE (NAME),
+  CONSTRAINT FK_MAJOR_COLLEGEID FOREIGN KEY (COLLEGEID) REFERENCES COLLEGE(ID)
 );
 --班级
 drop table Class;
@@ -23,7 +24,8 @@ create table Class(
   name nvarchar2(20),  --班级名字
   openTime date,  --开班时间 2014-09-01
   CONSTRAINT PK_CLASS_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_CLASS_NAME UNIQUE (NAME)
+  CONSTRAINT UQ_CLASS_NAME UNIQUE (NAME),
+  CONSTRAINT FK_CLASS_MAJORID FOREIGN KEY (MAJORID) REFERENCES MAJOR(ID)
 );
 --课程类型
 drop table CourseType;
@@ -43,7 +45,8 @@ create table Course(
   credit number(2),  --学分
   note nvarchar2(200),  --备注
   CONSTRAINT PK_COURSE_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_COURSE_NAME UNIQUE (NAME)
+  CONSTRAINT UQ_COURSE_NAME UNIQUE (NAME),
+  CONSTRAINT FK_COURSE_TYPEID FOREIGN KEY (TYPEID) REFERENCES CourseType(ID)
 );
 --专业&课程
 drop table MajorCourse;
@@ -53,7 +56,9 @@ create table MajorCourse(
   majorId varchar2(10),  --开课专业,外键
   term  number(2),  --开课学期
   CONSTRAINT PK_MAJORCOURSE_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_COURSE_COURSEID_MAJORID UNIQUE (COURSEID,MAJORID)
+  CONSTRAINT UQ_COURSE_COURSEID_MAJORID UNIQUE (COURSEID,MAJORID),
+  CONSTRAINT FK_MAJORCOURSE_COURSEID FOREIGN KEY (COURSEID) REFERENCES COURSE(ID),
+  CONSTRAINT FK_MAJORCOURSE_MAJORID FOREIGN KEY (MAJORID) REFERENCES MAJOR(ID)
 );
 --专业&课程，被选择
 drop table MajorCourseSelected;
@@ -64,7 +69,9 @@ create table MajorCourseSelected(
   term  number(2),  --开课学期
   grade varchar2(10),  --年级 2014/2015
   CONSTRAINT PK_MAJORCOURSESELECTED_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_MajorCourseSelected UNIQUE (COURSEID,MAJORID,GRADE)
+  CONSTRAINT UQ_MajorCourseSelected UNIQUE (COURSEID,MAJORID,GRADE),
+  CONSTRAINT FK_MajCouSelected_COURSEID FOREIGN KEY (COURSEID) REFERENCES COURSE(ID),
+  CONSTRAINT FK_MajCouSelected_MAJORID FOREIGN KEY (MAJORID) REFERENCES MAJOR(ID)
 );
 --教师类型
 drop table TeacherType;
@@ -78,7 +85,7 @@ create table TeacherType(
 drop table Teacher;
 create table Teacher(
   id varchar2(10),  --教师工号
-  teacherTypeId number(5),  --教师类型id,外键
+  typeId number(5),  --教师类型id,外键
   name nvarchar2(20),  --教师名字
   idNumber varchar2(18),  --身份证号
   hireDate date,  --入职日期
@@ -87,7 +94,8 @@ create table Teacher(
   nation nvarchar2(10),  --民族
   address nvarchar2(100),  --家庭住址
   CONSTRAINT PK_TEACHER_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_TEACHER_IDNUMBER UNIQUE (IDNUMBER)
+  CONSTRAINT UQ_TEACHER_IDNUMBER UNIQUE (IDNUMBER),
+  CONSTRAINT FK_Teacher_typeId FOREIGN KEY (typeId) REFERENCES TeacherType(ID)
 );
 --教学楼
 drop table TeachBuild;
@@ -107,10 +115,14 @@ create table Arrangement(
   id number(10),  --逻辑主键
   courseId varchar2(10),  --课程编号,外键
   teacherId varchar2(10),  --教师工号,外键
-  teachBuild number(5),  --教学楼,外键
-  classRoom varchar2(5), --教室,外键
+  teachBuild nvarchar2(20),  --教学楼,外键
+  classRoom varchar2(10), --教室,外键
   CONSTRAINT PK_ARRANGEMENT_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_ARRANGEMENT UNIQUE (COURSEID,TEACHERID,TEACHBUILD,CLASSROOM)
+  CONSTRAINT UQ_ARRANGEMENT UNIQUE (COURSEID,TEACHERID,TEACHBUILD,CLASSROOM),
+  CONSTRAINT FK_Arrangement_courseId FOREIGN KEY (courseId) REFERENCES Course(ID),
+  CONSTRAINT FK_Arrangement_teacherId FOREIGN KEY (teacherId) REFERENCES Teacher(ID),
+  CONSTRAINT FK_Arrangement_teachBuild FOREIGN KEY (teachBuild) REFERENCES TeachBuild(name),
+  CONSTRAINT FK_Arrangement_classRoom FOREIGN KEY (classRoom) REFERENCES ClassRoom(name)
 );
 --*授课班级(教师&班级&星期&节数)
 drop table TeacherClass;
@@ -124,12 +136,15 @@ create table TeacherClass(
   lesson nvarchar2(10),  --节数
   teachTime varchar2(11),  --授课时间 2014-2015-1
   CONSTRAINT PK_TEACHERCLASS_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_TEACHERCLASS UNIQUE (ARRANGEMENTID,CLASSID,STARTWEEK,ENDWEEK,WEEK,LESSON,TEACHTIME)
+  CONSTRAINT UQ_TEACHERCLASS UNIQUE (ARRANGEMENTID,CLASSID,STARTWEEK,ENDWEEK,WEEK,LESSON,TEACHTIME),
+  CONSTRAINT FK_TeacherClass_arrangeId FOREIGN KEY (arrangementId) REFERENCES arrangement(id),
+  CONSTRAINT FK_TeacherClass_classId FOREIGN KEY (classId) REFERENCES Class(id)
 );
 --学生
 drop table Student;
 create table Student(
   id varchar2(10),  --学号
+  classId varchar2(10),  --学生所在班级编号
   name nvarchar2(20),  --学生名字
   enterTime date,  --入学时间
   idNumber varchar2(18),  --身份证号
@@ -139,12 +154,13 @@ create table Student(
   nation nvarchar2(10),  --民族
   address nvarchar2(100),  --家庭住址
   CONSTRAINT PK_STUDENT_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_STUDENT_IDNUMBER UNIQUE (IDNUMBER)
+  CONSTRAINT UQ_STUDENT_IDNUMBER UNIQUE (IDNUMBER),
+  CONSTRAINT FK_Student_classId FOREIGN KEY (classId) REFERENCES Class(id)
 );
 --*选修课班级
 drop table ClassSelected;
 create table ClassSelected(
-  classId varchar2(10),  --班级编号
+  id varchar2(10),  --班级编号
   arrangementId number(10),  --授课安排id,外键
   startWeek number(2),  --开始周数 *
   endWeek number(2),  --结束周数
@@ -152,8 +168,9 @@ create table ClassSelected(
   lesson nvarchar2(10),  --节数
   studentSelected number(3),  --选择人数
   studentTemp number(3),  --预期人数
-  CONSTRAINT PK_CLASSSELECTED_ID PRIMARY KEY (CLASSID),
-  CONSTRAINT UQ_CLASSSELECTED UNIQUE (CLASSID,ARRANGEMENTID,STARTWEEK,ENDWEEK,WEEK,LESSON)
+  CONSTRAINT PK_CLASSSELECTED_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_CLASSSELECTED UNIQUE (ID,ARRANGEMENTID,STARTWEEK,ENDWEEK,WEEK,LESSON),
+  CONSTRAINT FK_ClassSelected_arrangeId FOREIGN KEY (arrangementId) REFERENCES arrangement(id)
 );
 --学生所在班级(学生&班级)
 drop table InClassSelected;
@@ -163,22 +180,26 @@ create table InClassSelected(
   classSelectedId varchar2(10),  --选修课班级编号,外键
   selectTime varchar2(11),  --选修时间 2014-2015-2
   CONSTRAINT PK_INCLASSSELECTED_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_INCLASSSELECTED UNIQUE (studentId,classSelectedId,selectTime)
+  CONSTRAINT UQ_INCLASSSELECTED UNIQUE (studentId,classSelectedId,selectTime),
+  CONSTRAINT FK_InClaSel_studentId FOREIGN KEY (studentId) REFERENCES Student(id),
+  CONSTRAINT FK_InClaSel_claSelId FOREIGN KEY (classSelectedId) REFERENCES ClassSelected(id)
 );
 --成绩(学生&课程)
 drop table Score;
 create table Score(
   id number(10),  --逻辑主键
   studentId varchar2(10),  --学号,外键
-  courseId number(5),  --课程编号,外键
+  courseId varchar2(10),  --课程编号,外键
   dailyScore number(3),  --平时成绩
   examScore number(3),  --期末考试成绩
   totalScore number(3), --学期总分
   selectTime varchar2(11),  --选修时间 
   isPass number(1),  --是否补考
   isCommit number(1),  --是否提交
-  CONSTRAINT PK_INCLASSSELECTED_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_SCORE UNIQUE (STUDENTID,COURSEID)
+  CONSTRAINT PK_SCORE_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_SCORE UNIQUE (STUDENTID,COURSEID),
+  CONSTRAINT FK_Score_studentId FOREIGN KEY (studentId) REFERENCES Student(id),
+  CONSTRAINT FK_Score_courseId FOREIGN KEY (courseId) REFERENCES Course(id)
 );
 --用户
 drop table LoginUser;
