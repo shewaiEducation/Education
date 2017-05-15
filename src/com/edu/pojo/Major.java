@@ -13,8 +13,6 @@ public class Major implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	/** major serial number */
 	private String id;
-	/** college serial number */
-	private String collegeId;
 	/** major name */
 	private String name;
 	/** which belong to the college */
@@ -34,14 +32,6 @@ public class Major implements java.io.Serializable {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getCollegeId() {
-		return this.collegeId;
-	}
-
-	public void setCollegeId(String collegeId) {
-		this.collegeId = collegeId;
 	}
 
 	public String getName() {

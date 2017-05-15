@@ -35,5 +35,15 @@
         	<one-to-many class="com.edu.pojo.MajorCourseSelected" />
         </set>
         
+        <set name="arrangements" inverse="true">
+        	<key column="courseId"></key>
+        	<one-to-many class="com.edu.pojo.Arrangement" />
+        </set>
+        
+        <set name="scores" inverse="true">
+        	<key column="courseId"></key>
+        	<one-to-many class="com.edu.pojo.Score" />
+        </set>
+        
     </class>
 </hibernate-mapping>

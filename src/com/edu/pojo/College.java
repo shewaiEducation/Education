@@ -18,8 +18,6 @@ public class College implements java.io.Serializable {
 	/** all of the college major */
 	private Set<Major> majors = new HashSet<Major>();
 
-	// Constructors
-
 	/** default constructor */
 	public College() {
 	}

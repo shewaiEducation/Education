@@ -6,15 +6,13 @@ import java.util.Set;
 /**
  * javaBean:Course 
  * @author Shr
- * @since 2015-05-14
+ * @since 2017-05-14
  */
 
 public class Course implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	/** course serial number */
 	private String id;
-	/** which type serial number */
-	private Integer typeId;
 	/** course name */
 	private String name;
 	/** the course of total hours */
@@ -28,6 +26,10 @@ public class Course implements java.io.Serializable {
 	/** which term which major */
 	private Set<MajorCourse> majorCourses = new HashSet<MajorCourse>();
 	private Set<MajorCourse> majorCourseSels = new HashSet<MajorCourse>();
+	/** be arranged */
+	private Set<Arrangement> arrangements = new HashSet<Arrangement>();
+	/** student's all of score */
+	private Set<Score> scores = new HashSet<Score>();
 	
 	public Course() {
 	}
@@ -38,14 +40,6 @@ public class Course implements java.io.Serializable {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public Integer getTypeId() {
-		return typeId;
-	}
-
-	public void setTypeId(Integer typeId) {
-		this.typeId = typeId;
 	}
 
 	public String getName() {
@@ -102,6 +96,22 @@ public class Course implements java.io.Serializable {
 
 	public void setMajorCourseSels(Set<MajorCourse> majorCourseSels) {
 		this.majorCourseSels = majorCourseSels;
+	}
+
+	public Set<Arrangement> getArrangements() {
+		return arrangements;
+	}
+
+	public void setArrangements(Set<Arrangement> arrangements) {
+		this.arrangements = arrangements;
+	}
+
+	public Set<Score> getScores() {
+		return scores;
+	}
+
+	public void setScores(Set<Score> scores) {
+		this.scores = scores;
 	}
 
 }

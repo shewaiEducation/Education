@@ -24,6 +24,18 @@
     	<mapping resource="com/edu/pojo/Course.hbm.xml" />
     	<mapping resource="com/edu/pojo/MajorCourse.hbm.xml" />
     	<mapping resource="com/edu/pojo/MajorCourseSelected.hbm.xml" />
+    	<mapping resource="com/edu/pojo/Teacher.hbm.xml" />
+    	<mapping resource="com/edu/pojo/TeacherType.hbm.xml" />
+    	<mapping resource="com/edu/pojo/TeachBuild.hbm.xml" />
+    	<mapping resource="com/edu/pojo/ClassRoom.hbm.xml" />
+    	<mapping resource="com/edu/pojo/Arrangement.hbm.xml" />
+    	<mapping resource="com/edu/pojo/TeacherClass.hbm.xml" />
+    	<mapping resource="com/edu/pojo/Student.hbm.xml" />
+    	<mapping resource="com/edu/pojo/ClassSelected.hbm.xml" />
+    	<mapping resource="com/edu/pojo/InClassSelected.hbm.xml" />
+    	<mapping resource="com/edu/pojo/Score.hbm.xml" />
+    	<mapping resource="com/edu/pojo/Manager.hbm.xml" />
+    	<mapping resource="com/edu/pojo/LoginUser.hbm.xml" />
     	
     	
     </session-factory>

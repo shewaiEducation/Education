@@ -1,88 +1,80 @@
 package com.edu.pojo;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Student entity. @author MyEclipse Persistence Tools
+ * javaBean:Student
+ * @author Shr
+ * @since 2017-05-15
  */
 
 public class Student implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
+	/** student's student ID */
 	private String id;
-	private String classid;
+	/** student's name */
 	private String name;
-	private Date entertime;
-	private String idnumber;
+	/** time of enrollment */
+	private Date enterTime;
+	/** student's idcard */
+	private String idcard;
+	/** sex */
 	private String sex;
+	/** phone number */
 	private String phone;
-	private String relativephone;
+	/** family phone */
+	private String relativePhone;
+	/** student's nation */
 	private String nation;
+	/** student's address */
 	private String address;
-
-	// Constructors
+	/** student in class */
+	private Class clazz;
+	/** all of selective course */
+	private Set<InClassSelected> inClassSelecteds = new HashSet<InClassSelected>();
+	/** student's all of score */
+	private Set<Score> scores = new HashSet<Score>();
 
 	/** default constructor */
 	public Student() {
 	}
 
-	/** full constructor */
-	public Student(String classid, String name, Date entertime, String idnumber, String sex, String phone,
-			String relativephone, String nation, String address) {
-		this.classid = classid;
-		this.name = name;
-		this.entertime = entertime;
-		this.idnumber = idnumber;
-		this.sex = sex;
-		this.phone = phone;
-		this.relativephone = relativephone;
-		this.nation = nation;
-		this.address = address;
-	}
-
-	// Property accessors
-
 	public String getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(String id) {
 		this.id = id;
 	}
 
-	public String getClassid() {
-		return this.classid;
-	}
-
-	public void setClassid(String classid) {
-		this.classid = classid;
-	}
-
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public Date getEntertime() {
-		return this.entertime;
+	public Date getEnterTime() {
+		return enterTime;
 	}
 
-	public void setEntertime(Date entertime) {
-		this.entertime = entertime;
+	public void setEnterTime(Date enterTime) {
+		this.enterTime = enterTime;
 	}
 
-	public String getIdnumber() {
-		return this.idnumber;
+	public String getIdcard() {
+		return idcard;
 	}
 
-	public void setIdnumber(String idnumber) {
-		this.idnumber = idnumber;
+	public void setIdcard(String idcard) {
+		this.idcard = idcard;
 	}
 
 	public String getSex() {
-		return this.sex;
+		return sex;
 	}
 
 	public void setSex(String sex) {
@@ -90,23 +82,23 @@ public class Student implements java.io.Serializable {
 	}
 
 	public String getPhone() {
-		return this.phone;
+		return phone;
 	}
 
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
-	public String getRelativephone() {
-		return this.relativephone;
+	public String getRelativePhone() {
+		return relativePhone;
 	}
 
-	public void setRelativephone(String relativephone) {
-		this.relativephone = relativephone;
+	public void setRelativePhone(String relativePhone) {
+		this.relativePhone = relativePhone;
 	}
 
 	public String getNation() {
-		return this.nation;
+		return nation;
 	}
 
 	public void setNation(String nation) {
@@ -114,11 +106,34 @@ public class Student implements java.io.Serializable {
 	}
 
 	public String getAddress() {
-		return this.address;
+		return address;
 	}
 
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
+	public Set<InClassSelected> getInClassSelecteds() {
+		return inClassSelecteds;
+	}
+
+	public void setInClassSelecteds(Set<InClassSelected> inClassSelecteds) {
+		this.inClassSelecteds = inClassSelecteds;
+	}
+
+	public Class getClazz() {
+		return clazz;
+	}
+
+	public void setClazz(Class clazz) {
+		this.clazz = clazz;
+	}
+
+	public Set<Score> getScores() {
+		return scores;
+	}
+
+	public void setScores(Set<Score> scores) {
+		this.scores = scores;
+	}
 }

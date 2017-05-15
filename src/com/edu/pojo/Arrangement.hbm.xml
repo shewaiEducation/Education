@@ -12,17 +12,21 @@
             	<param name="sequence">seq_Arrangement</param>
             </generator>
         </id>
-        <property name="courseId" type="java.lang.String">
-            <column name="COURSEID" length="10" />
-        </property>
-        <property name="teacherId" type="java.lang.String">
-            <column name="TEACHERID" length="10" />
-        </property>
-        <property name="teachBuild" type="java.lang.String">
-            <column name="TEACHBUILD" />
-        </property>
-        <property name="classRoom" type="java.lang.String">
-            <column name="CLASSROOM" length="10" />
-        </property>
+        
+        <many-to-one name="course" column="courseId" class="com.edu.pojo.Course"/>
+        <many-to-one name="teacher" column="teacherId" class="com.edu.pojo.Teacher"/>
+        <many-to-one name="teachingbuilding" column="teachBuildName" class="com.edu.pojo.TeachBuild"/>
+        <many-to-one name="classroom" column="classRoomName" class="com.edu.pojo.ClassRoom"/>
+        
+        <set name="teacherClasses" inverse="true">
+        	<key column="arrangementId"></key>
+        	<one-to-many class="com.edu.pojo.TeacherClass" />
+        </set>
+        
+        <set name="classSelecteds" inverse="true">
+        	<key column="arrangementId"></key>
+        	<one-to-many class="com.edu.pojo.ClassSelected" />
+        </set>
+        
     </class>
 </hibernate-mapping>

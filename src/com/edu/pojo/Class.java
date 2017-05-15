@@ -1,6 +1,8 @@
 package com.edu.pojo;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * javaBean:Class 
@@ -12,15 +14,17 @@ public class Class implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	/** logic primary key */
 	private String id;
-	/** major serial number */
-	private String majorId;
 	/** class name */
 	private String name;
 	/** class time */
 	private Date openTime;
 	/** which belong to the major */
 	private Major major;
-
+	/** all of student in this class */
+	private Set<Student> students = new HashSet<Student>();
+	/** be arrangement class */
+	private Set<TeacherClass> teacherClasses = new HashSet<TeacherClass>();
+	
 	public Class() {
 	}
 
@@ -30,14 +34,6 @@ public class Class implements java.io.Serializable {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getMajorId() {
-		return majorId;
-	}
-
-	public void setMajorId(String majorId) {
-		this.majorId = majorId;
 	}
 
 	public String getName() {
@@ -62,5 +58,21 @@ public class Class implements java.io.Serializable {
 
 	public void setMajor(Major major) {
 		this.major = major;
+	}
+
+	public Set<TeacherClass> getTeacherClasses() {
+		return teacherClasses;
+	}
+
+	public void setTeacherClasses(Set<TeacherClass> teacherClasses) {
+		this.teacherClasses = teacherClasses;
+	}
+
+	public Set<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(Set<Student> students) {
+		this.students = students;
 	}
 }

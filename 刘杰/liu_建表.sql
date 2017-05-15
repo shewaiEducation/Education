@@ -87,14 +87,14 @@ create table Teacher(
   id varchar2(10),  --教师工号
   typeId number(5),  --教师类型id,外键
   name nvarchar2(20),  --教师名字
-  idNumber varchar2(18),  --身份证号
+  idcard varchar2(18),  --身份证号
   hireDate date,  --入职日期
   sex nvarchar2(2),  --性别
   phone char(11),  --电话号码
   nation nvarchar2(10),  --民族
   address nvarchar2(100),  --家庭住址
   CONSTRAINT PK_TEACHER_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_TEACHER_IDNUMBER UNIQUE (IDNUMBER)
+  CONSTRAINT UQ_TEACHER_IDCARD UNIQUE (IDCARD)
   --,CONSTRAINT FK_Teacher_typeId FOREIGN KEY (typeId) REFERENCES TeacherType(ID) ON DELETE SET NULL
 );
 --教学楼
@@ -115,10 +115,10 @@ create table Arrangement(
   id number(10),  --逻辑主键
   courseId varchar2(10),  --课程编号,外键
   teacherId varchar2(10),  --教师工号,外键
-  teachBuild nvarchar2(20),  --教学楼,外键
-  classRoom varchar2(10), --教室,外键
+  teachBuildName nvarchar2(20),  --教学楼,外键
+  classRoomName varchar2(10), --教室,外键
   CONSTRAINT PK_ARRANGEMENT_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_ARRANGEMENT UNIQUE (COURSEID,TEACHERID,TEACHBUILD,CLASSROOM)
+  CONSTRAINT UQ_ARRANGEMENT UNIQUE (COURSEID,TEACHERID,teachBuildName,classRoomName)
   --,CONSTRAINT FK_Arrangement_courseId FOREIGN KEY (courseId) REFERENCES Course(ID) ON DELETE SET NULL,
   --CONSTRAINT FK_Arrangement_teacherId FOREIGN KEY (teacherId) REFERENCES Teacher(ID) ON DELETE SET NULL,
   --CONSTRAINT FK_Arrangement_teachBuild FOREIGN KEY (teachBuild) REFERENCES TeachBuild(name) ON DELETE SET NULL,
@@ -147,14 +147,14 @@ create table Student(
   classId varchar2(10),  --学生所在班级编号
   name nvarchar2(20),  --学生名字
   enterTime date,  --入学时间
-  idNumber varchar2(18),  --身份证号
+  idcard varchar2(18),  --身份证号
   sex nvarchar2(2),  --性别
   phone char(11),  --电话号码
   relativePhone varchar2(12), --亲属电话
   nation nvarchar2(10),  --民族
   address nvarchar2(100),  --家庭住址
   CONSTRAINT PK_STUDENT_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_STUDENT_IDNUMBER UNIQUE (IDNUMBER)
+  CONSTRAINT UQ_STUDENT_IDCARD UNIQUE (IDCARD)
   --,CONSTRAINT FK_Student_classId FOREIGN KEY (classId) REFERENCES Class(id) ON DELETE SET NULL
 );
 --*选修课班级
@@ -162,13 +162,16 @@ drop table ClassSelected;
 create table ClassSelected(
   id varchar2(10),  --班级编号
   arrangementId number(10),  --授课安排id,外键
+  name nvarchar2(20),  --班级名字
   startWeek number(2),  --开始周数 *
   endWeek number(2),  --结束周数
   week nvarchar2(10),  --星期
   lesson nvarchar2(10),  --节数
   studentSelected number(3),  --选择人数
   studentTemp number(3),  --预期人数
+  openTime varchar2(11),  --开班时间 2014-2015-1
   CONSTRAINT PK_CLASSSELECTED_ID PRIMARY KEY (ID),
+  CONSTRAINT UQ_CLASSSELECTED_NAME UNIQUE (NAME),
   CONSTRAINT UQ_CLASSSELECTED UNIQUE (ID,ARRANGEMENTID,STARTWEEK,ENDWEEK,WEEK,LESSON)
   --,CONSTRAINT FK_ClassSelected_arrangeId FOREIGN KEY (arrangementId) REFERENCES arrangement(id) ON DELETE SET NULL
 );
@@ -216,8 +219,8 @@ drop table Manager;
 create table Manager(
   id number(10),  --逻辑主键
   name nvarchar2(20),  --管理员名字
-  idNumber varchar2(18),  --身份证号
+  idcard varchar2(18),  --身份证号
   address nvarchar2(100),  --家庭住址
   CONSTRAINT PK_MANAGER_ID PRIMARY KEY (ID),
-  CONSTRAINT UQ_MANAGER_IDNUMBER UNIQUE (IDNUMBER)
+  CONSTRAINT UQ_MANAGER_IDCARD UNIQUE (IDCARD)
 );

@@ -16,6 +16,18 @@
         <property name="openTime" type="java.util.Date">
             <column name="OPENTIME" length="7" />
         </property>
+        
         <many-to-one name="major" column="majorId" class="com.edu.pojo.Major"></many-to-one>
+        
+        <set name="students" inverse="true">
+        	<key column="classId"></key>
+        	<one-to-many class="com.edu.pojo.Student" />
+        </set>
+        
+        <set name="teacherClasses" inverse="true">
+        	<key column="classId"></key>
+        	<one-to-many class="com.edu.pojo.TeacherClass" />
+        </set>
+        
     </class>
 </hibernate-mapping>

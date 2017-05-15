@@ -1,78 +1,67 @@
 package com.edu.pojo;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Teacher entity. @author MyEclipse Persistence Tools
+ * javaBean:Teacher 
+ * @author Shr
+ * @since 2017-05-15
  */
 
 public class Teacher implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
+	/** teacher's job number */
 	private String id;
-	private Integer typeid;
+	/** teacher's name */
 	private String name;
-	private String idnumber;
+	/** teacher's idcard */
+	private String idcard;
+	/** hiredate */
 	private Date hiredate;
+	/** sex */
 	private String sex;
+	/** person phone number */
 	private String phone;
+	/** nation */
 	private String nation;
+	/** address */
 	private String address;
+	/** teacher's type */
+	private TeacherType teacherType;
+	/** be arranged */
+	private Set<Arrangement> arrangements = new HashSet<Arrangement>();
 
-	// Constructors
-
-	/** default constructor */
 	public Teacher() {
 	}
 
-	/** full constructor */
-	public Teacher(Integer typeid, String name, String idnumber, Date hiredate, String sex, String phone,
-			String nation, String address) {
-		this.typeid = typeid;
-		this.name = name;
-		this.idnumber = idnumber;
-		this.hiredate = hiredate;
-		this.sex = sex;
-		this.phone = phone;
-		this.nation = nation;
-		this.address = address;
-	}
-
-	// Property accessors
-
 	public String getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(String id) {
 		this.id = id;
 	}
 
-	public Integer getTypeid() {
-		return this.typeid;
-	}
-
-	public void setTypeid(Integer typeid) {
-		this.typeid = typeid;
-	}
-
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getIdnumber() {
-		return this.idnumber;
+	public String getIdcard() {
+		return idcard;
 	}
 
-	public void setIdnumber(String idnumber) {
-		this.idnumber = idnumber;
+	public void setIdcard(String idcard) {
+		this.idcard = idcard;
 	}
 
 	public Date getHiredate() {
-		return this.hiredate;
+		return hiredate;
 	}
 
 	public void setHiredate(Date hiredate) {
@@ -80,7 +69,7 @@ public class Teacher implements java.io.Serializable {
 	}
 
 	public String getSex() {
-		return this.sex;
+		return sex;
 	}
 
 	public void setSex(String sex) {
@@ -88,7 +77,7 @@ public class Teacher implements java.io.Serializable {
 	}
 
 	public String getPhone() {
-		return this.phone;
+		return phone;
 	}
 
 	public void setPhone(String phone) {
@@ -96,7 +85,7 @@ public class Teacher implements java.io.Serializable {
 	}
 
 	public String getNation() {
-		return this.nation;
+		return nation;
 	}
 
 	public void setNation(String nation) {
@@ -104,11 +93,26 @@ public class Teacher implements java.io.Serializable {
 	}
 
 	public String getAddress() {
-		return this.address;
+		return address;
 	}
 
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
+	public TeacherType getTeacherType() {
+		return teacherType;
+	}
+
+	public void setTeacherType(TeacherType teacherType) {
+		this.teacherType = teacherType;
+	}
+
+	public Set<Arrangement> getArrangements() {
+		return arrangements;
+	}
+
+	public void setArrangements(Set<Arrangement> arrangements) {
+		this.arrangements = arrangements;
+	}
 }

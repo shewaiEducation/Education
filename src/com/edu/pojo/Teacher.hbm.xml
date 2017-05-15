@@ -8,16 +8,13 @@
     <class name="com.edu.pojo.Teacher" table="TEACHER" schema="SCOTT">
         <id name="id" type="java.lang.String">
             <column name="ID" length="10" />
-            <generator class="native" />
+            <generator class="assigned" />
         </id>
-        <property name="typeid" type="java.lang.Integer">
-            <column name="TYPEID" precision="5" scale="0" />
-        </property>
         <property name="name" type="java.lang.String">
             <column name="NAME" />
         </property>
-        <property name="idnumber" type="java.lang.String">
-            <column name="IDNUMBER" length="18" unique="true" />
+        <property name="idcard" type="java.lang.String">
+            <column name="IDCARD" length="18" unique="true" />
         </property>
         <property name="hiredate" type="java.util.Date">
             <column name="HIREDATE" length="7" />
@@ -34,5 +31,14 @@
         <property name="address" type="java.lang.String">
             <column name="ADDRESS" />
         </property>
+        
+        <many-to-one name="teacherType" column="typeId" class="com.edu.pojo.TeacherType" />
+        
+        <set name="arrangements" inverse="true">
+        	<key column="teacherId"></key>
+        	<one-to-many class="com.edu.pojo.Arrangement" />
+        </set>
+        
+        
     </class>
 </hibernate-mapping>

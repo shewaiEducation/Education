@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * javaBean:Coursetype 
  * @author Shr
- * @since 2015-05-14
+ * @since 2017-05-14
  */
 
 public class CourseType implements java.io.Serializable {

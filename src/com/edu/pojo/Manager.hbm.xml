@@ -15,8 +15,8 @@
         <property name="name" type="java.lang.String">
             <column name="NAME" />
         </property>
-        <property name="idnumber" type="java.lang.String">
-            <column name="IDNUMBER" length="18" unique="true" />
+        <property name="idcard" type="java.lang.String">
+            <column name="IDCARD" length="18" unique="true" />
         </property>
         <property name="address" type="java.lang.String">
             <column name="ADDRESS" />

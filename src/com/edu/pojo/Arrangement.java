@@ -1,7 +1,11 @@
 package com.edu.pojo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
- * javaBean:Arrangement 
+ * javaBean:Arrangement
+ * 
  * @author Shr
  * @since 2017-05-14
  */
@@ -10,44 +14,74 @@ public class Arrangement implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	/** logic primary key */
 	private Integer id;
-	/** couse serial number */
-	private String courseId;
-	/** teacher serial number */
-	private String teacherId;
-	/** teaching building name */
-	private String teachBuild;
-	/** classroom name */
-	private String classRoom;
+	/** course */
+	private Course course;
+	/** teacher */
+	private Teacher teacher;
+	/** teaching building */
+	private TeachBuild teachingbuilding;
+	/** classroom */
+	private ClassRoom classroom;
+	/** be arrangement class info */
+	private Set<TeacherClass> teacherClasses = new HashSet<TeacherClass>();
+	private Set<ClassSelected> classSelecteds = new HashSet<ClassSelected>();
+	
 	public Arrangement() {
 	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getCourseId() {
-		return courseId;
+
+	public Course getCourse() {
+		return course;
 	}
-	public void setCourseId(String courseId) {
-		this.courseId = courseId;
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
-	public String getTeacherId() {
-		return teacherId;
+
+	public Teacher getTeacher() {
+		return teacher;
 	}
-	public void setTeacherId(String teacherId) {
-		this.teacherId = teacherId;
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
 	}
-	public String getTeachBuild() {
-		return teachBuild;
+
+	public ClassRoom getClassroom() {
+		return classroom;
 	}
-	public void setTeachBuild(String teachBuild) {
-		this.teachBuild = teachBuild;
+
+	public void setClassroom(ClassRoom classroom) {
+		this.classroom = classroom;
 	}
-	public String getClassRoom() {
-		return classRoom;
+
+	public TeachBuild getTeachingbuilding() {
+		return teachingbuilding;
 	}
-	public void setClassRoom(String classRoom) {
-		this.classRoom = classRoom;
+
+	public void setTeachingbuilding(TeachBuild teachingbuilding) {
+		this.teachingbuilding = teachingbuilding;
+	}
+
+	public Set<TeacherClass> getTeacherClasses() {
+		return teacherClasses;
+	}
+
+	public void setTeacherClasses(Set<TeacherClass> teacherClasses) {
+		this.teacherClasses = teacherClasses;
+	}
+
+	public Set<ClassSelected> getClassSelecteds() {
+		return classSelecteds;
+	}
+
+	public void setClassSelecteds(Set<ClassSelected> classSelecteds) {
+		this.classSelecteds = classSelecteds;
 	}
 }

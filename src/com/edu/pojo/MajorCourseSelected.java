@@ -10,10 +10,6 @@ public class MajorCourseSelected implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	/** logic primary key */
 	private Integer id;
-	/** which course serial number */
-	private String courseId;
-	/** which major serial number */
-	private String majorId;
 	/** which term which major which course */
 	private Integer term;
 	/** which grade student choose */
@@ -32,22 +28,6 @@ public class MajorCourseSelected implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public String getCourseId() {
-		return courseId;
-	}
-
-	public void setCourseId(String courseId) {
-		this.courseId = courseId;
-	}
-
-	public String getMajorId() {
-		return majorId;
-	}
-
-	public void setMajorId(String majorId) {
-		this.majorId = majorId;
 	}
 
 	public Integer getTerm() {

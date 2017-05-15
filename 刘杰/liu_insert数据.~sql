@@ -34,6 +34,7 @@ select * from CourseType;
 --truncate table CourseType;
 --课程
 insert into Course values('',null,'',null,null,'');
+truncate table Course;
 select * from Course;
 --truncate table Course;
 --专业&课程
@@ -44,6 +45,7 @@ minvalue 0
 maxvalue 99999 
 increment by 1;
 
+truncate table MajorCourse;
 select * from MajorCourse;
 --专业&课程，被选择
 drop sequence seq_MajorCourseSelected;
@@ -53,6 +55,7 @@ minvalue 0
 maxvalue 999999 
 increment by 1;
 
+truncate table MajorCourseSelected;
 select * from MajorCourseSelected;
 --教师类型
 drop sequence seq_teacherType;
@@ -61,12 +64,18 @@ start with 1
 minvalue 0 
 maxvalue 99 
 increment by 1;
+
+truncate table TeacherType;
+select * from TeacherType;
 --教师
-
+truncate table Teacher;
+select * from Teacher;
 --教学楼
-
+truncate table TeachBuild;
+select * from TeachBuild;
 --教室
-
+truncate table ClassRoom;
+select * from ClassRoom;
 --授课安排(课程&教师&教学楼&教室)
 drop sequence seq_Arrangement;
 create sequence seq_Arrangement 
@@ -74,6 +83,9 @@ start with 1
 minvalue 0 
 maxvalue 999999 
 increment by 1;
+
+truncate table Arrangement;
+select * from Arrangement;
 --授课班级(教师&班级&星期&节数)
 drop sequence seq_TeacherClass;
 create sequence seq_TeacherClass 
@@ -81,10 +93,15 @@ start with 1
 minvalue 0 
 maxvalue 999999 
 increment by 1;
+
+truncate table TeacherClass;
+select * from TeacherClass;
 --学生
-
+truncate table Student;
+select * from Student;
 --选修课班级
-
+truncate table ClassSelected;
+select * from ClassSelected;
 --学生所在班级(学生&班级)
 drop sequence seq_InClassSelected;
 create sequence seq_InClassSelected 
@@ -92,6 +109,9 @@ start with 1
 minvalue 0 
 maxvalue 999999 
 increment by 1;
+
+truncate table InClassselected;
+select * from InClassSelected;
 --成绩(学生&课程)
 drop sequence seq_Score;
 create sequence seq_Score 
@@ -99,6 +119,9 @@ start with 1
 minvalue 0 
 maxvalue 999999 
 increment by 1;
+
+truncate table Score;
+select * from Score;
 --用户
 drop sequence seq_LoginUser;
 create sequence seq_LoginUser 
@@ -109,6 +132,9 @@ increment by 1;
 
 insert into LoginUser values(seq_LoginUser.Nextval,'学生',学号,密码);
 insert into LoginUser values(seq_LoginUser.Nextval,'教师',学号,密码);
+
+truncate table LoginUser;
+select * from LoginUser;
 --管理员
 drop sequence seq_Manager;
 create sequence seq_Manager 
@@ -117,6 +143,7 @@ minvalue 0
 maxvalue 999 
 increment by 1;
 
-
+truncate table Manager;
+select * from Manager;
 
 

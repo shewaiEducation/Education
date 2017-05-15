@@ -1,33 +1,28 @@
 package com.edu.pojo;
 
 /**
- * Manager entity. @author MyEclipse Persistence Tools
+ * javaBean:Manager 
+ * @author Shr
+ * @since 2017-05-15
  */
 
 public class Manager implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
+	/** logic primary key */
 	private Integer id;
+	/** manager's name */
 	private String name;
-	private String idnumber;
+	/** manager's idcard */
+	private String idcard;
+	/** manager's address */
 	private String address;
-
-	// Constructors
 
 	/** default constructor */
 	public Manager() {
 	}
 
-	/** full constructor */
-	public Manager(String name, String idnumber, String address) {
-		this.name = name;
-		this.idnumber = idnumber;
-		this.address = address;
-	}
-
-	// Property accessors
-
 	public Integer getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(Integer id) {
@@ -35,27 +30,26 @@ public class Manager implements java.io.Serializable {
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getIdnumber() {
-		return this.idnumber;
+	public String getIdcard() {
+		return idcard;
 	}
 
-	public void setIdnumber(String idnumber) {
-		this.idnumber = idnumber;
+	public void setIdcard(String idcard) {
+		this.idcard = idcard;
 	}
 
 	public String getAddress() {
-		return this.address;
+		return address;
 	}
 
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
 }

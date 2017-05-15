@@ -12,29 +12,29 @@
             	<param name="sequence">seq_Score</param>
             </generator>
         </id>
-        <property name="studentid" type="java.lang.String">
-            <column name="STUDENTID" length="10" />
-        </property>
-        <property name="courseid" type="java.lang.String">
-            <column name="COURSEID" length="10" />
-        </property>
-        <property name="dailyscore" type="java.lang.Integer">
+        <property name="dailyScore" type="java.lang.Integer">
             <column name="DAILYSCORE" precision="3" scale="0" />
         </property>
-        <property name="examscore" type="java.lang.Integer">
+        <property name="examScore" type="java.lang.Integer">
             <column name="EXAMSCORE" precision="3" scale="0" />
         </property>
-        <property name="totalscore" type="java.lang.Integer">
+        <property name="totalScore" type="java.lang.Integer">
             <column name="TOTALSCORE" precision="3" scale="0" />
         </property>
-        <property name="selecttime" type="java.lang.String">
+        <property name="selectTime" type="java.lang.String">
             <column name="SELECTTIME" length="11" />
         </property>
-        <property name="ispass" type="java.lang.Integer">
+        <property name="isPass" type="java.lang.Integer">
             <column name="ISPASS" precision="1" scale="0" />
         </property>
-        <property name="iscommit" type="java.lang.Integer">
+        <property name="isCommit" type="java.lang.Integer">
             <column name="ISCOMMIT" precision="1" scale="0" />
         </property>
+        
+        <many-to-one name="student" column="studentId" class="com.edu.pojo.Student" />
+        
+        <many-to-one name="course" column="courseId" class="com.edu.pojo.Course" />
+
+        
     </class>
 </hibernate-mapping>
