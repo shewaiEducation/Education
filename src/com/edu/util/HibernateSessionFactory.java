@@ -10,6 +10,8 @@ import org.hibernate.service.ServiceRegistryBuilder;
  * Configures and provides access to Hibernate sessions, tied to the
  * current thread of execution.  Follows the Thread Local Session
  * pattern, see {@link http://hibernate.org/42.html }.
+ * @author Shr
+ * @since 2017-05-16
  */
 public class HibernateSessionFactory {
 

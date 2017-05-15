@@ -2,4 +2,17 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 
+	<constant name="struts.action.extension" value="action,,do"/>
+	
+	<!-- struts.devMode = false 开发者模式 
+		开启后 设置修改struts配置文件后自动重新加载
+		struts.i18n.reload = true
+		struts.configuration.xml.reload = true
+	-->
+	<constant name="struts.configuration.xml.reload" value="true"/>
+	
+	<include file="com/edu/action/struts-manager.xml" />
+	<include file="com/edu/action/struts-student.xml" />
+	<include file="com/edu/action/struts-teacher.xml" />
+	
 </struts>    
