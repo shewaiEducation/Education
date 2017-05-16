@@ -19,4 +19,10 @@
         	<one-to-many class="com.edu.pojo.Major"/>
         </set>
     </class>
+    
+    <query name="findAllCollege">
+    	<![CDATA[ FROM College ]]>
+    </query>
+    
+    
 </hibernate-mapping>

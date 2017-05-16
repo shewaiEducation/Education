@@ -6,41 +6,42 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 import com.edu.dao.LoginUserDao;
+import com.edu.dao.StudentDao;
 import com.edu.dao.TeacherDao;
 import com.edu.pojo.LoginUser;
+import com.edu.pojo.Student;
 import com.edu.pojo.Teacher;
 
 /**
- * An application layer to process business logic on POJO Teacher.
+ * An application layer to process business logic on POJO Student.
  * @author Shr
  * @since 2017-05-16
  */
-public class TeacherService implements Service{
-	
+public class StudentService {
 	
 	/**
-	 * update the teacher's information
-	 * @param teacher
+	 * update the student's information
+	 * @param student
 	 */
-	public void modify(Teacher teacher){
-		TeacherDao tDao = new TeacherDao();
-		tDao.modify(teacher);
+	public void modify(Student student){
+		StudentDao sDao = new StudentDao();
+		sDao.modify(student);
 	}
 	
 	/**
-	 * add a teacher,and add username and password to user
+	 * add a student,and add username and password to user
 	 * @param teacher 
 	 */
-	public void add(Teacher teacher){
-		TeacherDao tDao = new TeacherDao();
-		teacher.setHiredate(new Date());
-		tDao.add(teacher);
-		String username = teacher.getId();
+	public void add(Student student){
+		StudentDao sDao = new StudentDao();
+		student.setEnterTime(new Date());
+		sDao.add(student);
+		String username = student.getId();
 		String password = MD5(username);
 		LoginUser user = new LoginUser();
 		user.setUsername(username);
 		user.setPassword(password);
-		user.setUserType("教师");
+		user.setUserType("学生");
 		LoginUserDao luDao = new LoginUserDao();
 		luDao.add(user);
 	}

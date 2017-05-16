@@ -5,32 +5,32 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import com.edu.pojo.TeachBuild;
+import com.edu.pojo.TeacherType;
 import com.edu.util.HibernateSessionFactory;
 
 /**
- * POJO TeachBuild between a Java application and Database
+ * 
  * @author Shr
  * @since 2017-05-16
  */
-public class TeachBuildDao extends HibernateDao<TeachBuild>{
-	
+public class TeacherTypeDao extends HibernateDao<TeacherType>{
+
 	/**
-	 * Return all of college
+	 * Return all of teacher type
 	 * @return list
 	 */
 	@SuppressWarnings("unchecked")
-	public List<TeachBuild> findAllTeachBuild(){
-		List<TeachBuild> teachings = new ArrayList<TeachBuild>();
+	public List<TeacherType> findAllTeacherType(){
+		List<TeacherType> teacherTypes = new ArrayList<TeacherType>();
 		Session session = null;
 		try{
 			session = HibernateSessionFactory.getSession();
-			teachings = session.getNamedQuery("findAllTeachBuild").list();
+			teacherTypes = session.getNamedQuery("findAllTeacherType").list();
 		}catch(Exception e){
 			throw e;
 		} finally{
 			session.close();
 		}
-		return teachings;
+		return teacherTypes;
 	}
 }

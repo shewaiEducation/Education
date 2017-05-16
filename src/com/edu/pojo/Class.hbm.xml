@@ -30,4 +30,9 @@
         </set>
         
     </class>
+    
+    <query name="findAllClass">
+    	<![CDATA[ FROM Class ]]>
+    </query>
+    
 </hibernate-mapping>

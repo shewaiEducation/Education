@@ -1,6 +1,12 @@
 package com.edu.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Session;
+
 import com.edu.pojo.College;
+import com.edu.util.HibernateSessionFactory;
 
 /**
  * POJO College between a Java application and Database
@@ -9,4 +15,22 @@ import com.edu.pojo.College;
  */
 public class CollegeDao extends HibernateDao<College>{
 	
+	/**
+	 * Return all of college
+	 * @return list
+	 */
+	@SuppressWarnings("unchecked")
+	public List<College> findAllCollege(){
+		List<College> colleges = new ArrayList<College>();
+		Session session = null;
+		try{
+			session = HibernateSessionFactory.getSession();
+			colleges = session.getNamedQuery("findAllCollege").list();
+		}catch(Exception e){
+			throw e;
+		} finally{
+			session.close();
+		}
+		return colleges;
+	}
 }
