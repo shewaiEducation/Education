@@ -18,4 +18,8 @@
         
         
     </class>
+    
+    <query name="findAllTeachBuild">
+    	<![CDATA[ FROM TeachBuild ]]>
+    </query>
 </hibernate-mapping>

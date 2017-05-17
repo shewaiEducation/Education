@@ -5,32 +5,31 @@ import java.util.List;
 
 import org.hibernate.Session;
 
-import com.edu.pojo.TeachBuild;
+import com.edu.pojo.Class;
 import com.edu.util.HibernateSessionFactory;
-
 /**
- * POJO TeachBuild between a Java application and Database
+ * 
  * @author Shr
  * @since 2017-05-16
  */
-public class TeachBuildDao extends HibernateDao<TeachBuild>{
+public class ClassDao extends HibernateDao<Class>{
 	
 	/**
-	 * Return all of college
+	 * Return all of class
 	 * @return list
 	 */
 	@SuppressWarnings("unchecked")
-	public List<TeachBuild> findAllTeachBuild(){
-		List<TeachBuild> teachings = new ArrayList<TeachBuild>();
+	public List<Class> findAllClass(){
+		List<Class> classes = new ArrayList<Class>();
 		Session session = null;
 		try{
 			session = HibernateSessionFactory.getSession();
-			teachings = session.getNamedQuery("findAllTeachBuild").list();
+			classes = session.getNamedQuery("findAllClass").list();
 		}catch(Exception e){
 			throw e;
 		} finally{
 			session.close();
 		}
-		return teachings;
+		return classes;
 	}
 }

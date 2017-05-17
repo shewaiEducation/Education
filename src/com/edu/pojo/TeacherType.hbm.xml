@@ -22,4 +22,9 @@
         </set>
         
     </class>
+    
+    <query name="findAllTeacherType">
+    	<![CDATA[ FROM TeacherType ]]>
+    </query>
+    
 </hibernate-mapping>

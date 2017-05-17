@@ -17,4 +17,8 @@
         </set>
         
     </class>
+    
+     <query name="findAllClassRoom">
+    	<![CDATA[ FROM ClassRoom ]]>
+    </query>
 </hibernate-mapping>
