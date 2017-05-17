@@ -22,9 +22,4 @@
 
         
     </class>
-    
-    <query name="findAllMajorCourse">
-      <![CDATA[ FROM MajorCourse ]]>
-    </query>
-    
 </hibernate-mapping>

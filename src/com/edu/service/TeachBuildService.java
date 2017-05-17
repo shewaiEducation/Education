@@ -5,6 +5,6 @@ package com.edu.service;
  * @author Shr
  * @since 2017-05-16
  */
-public class TeachBuildService {
+public class TeachBuildService implements Service{
 	
 }

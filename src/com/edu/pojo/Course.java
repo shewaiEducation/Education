@@ -22,7 +22,7 @@ public class Course implements java.io.Serializable {
 	/** note */
 	private String note;
 	/** which belong to type */
-	private CourseType type;
+	private CourseType courseType;
 	/** which term which major */
 	private Set<MajorCourse> majorCourses = new HashSet<MajorCourse>();
 	private Set<MajorCourse> majorCourseSels = new HashSet<MajorCourse>();
@@ -74,6 +74,14 @@ public class Course implements java.io.Serializable {
 		this.note = note;
 	}
 
+	public CourseType getCourseType() {
+		return courseType;
+	}
+
+	public void setCourseType(CourseType courseType) {
+		this.courseType = courseType;
+	}
+
 	public Set<MajorCourse> getMajorCourses() {
 		return majorCourses;
 	}
@@ -104,14 +112,6 @@ public class Course implements java.io.Serializable {
 
 	public void setScores(Set<Score> scores) {
 		this.scores = scores;
-	}
-
-	public CourseType getType() {
-		return type;
-	}
-
-	public void setType(CourseType type) {
-		this.type = type;
 	}
 
 }

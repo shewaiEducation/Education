@@ -21,16 +21,16 @@ public class TeacherTypeDao extends HibernateDao<TeacherType>{
 	 */
 	@SuppressWarnings("unchecked")
 	public List<TeacherType> findAllTeacherType(){
-		List<TeacherType> types = new ArrayList<TeacherType>();
+		List<TeacherType> teacherTypes = new ArrayList<TeacherType>();
 		Session session = null;
 		try{
 			session = HibernateSessionFactory.getSession();
-			types = session.getNamedQuery("findAllTeacherType").list();
+			teacherTypes = session.getNamedQuery("findAllTeacherType").list();
 		}catch(Exception e){
 			throw e;
 		} finally{
 			session.close();
 		}
-		return types;
+		return teacherTypes;
 	}
 }

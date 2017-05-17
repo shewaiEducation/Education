@@ -31,8 +31,4 @@
         </set>
         
     </class>
-    
-    <query name="findAllMajor">
-      <![CDATA[ FROM Major ]]>
-    </query>
 </hibernate-mapping>

@@ -16,7 +16,7 @@ import com.edu.util.HibernateSessionFactory;
 public class TeachBuildDao extends HibernateDao<TeachBuild>{
 	
 	/**
-	 * Return all of teaching building
+	 * Return all of college
 	 * @return list
 	 */
 	@SuppressWarnings("unchecked")
