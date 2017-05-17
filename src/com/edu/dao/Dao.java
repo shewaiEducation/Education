@@ -29,6 +29,26 @@ public class Dao {
 	private Session session = null;
 	
 	@Test
+	public void addClassRoom(){
+		session = HibernateSessionFactory.getSession();
+		Transaction tr = session.beginTransaction();
+		for (int i = 1; i <= 6; i++) {
+			for (int j = 1; j <= 9; j++) {
+		//	for (int j = 0; j <= 5; j++) {
+				String value = "";
+				value += ""+i+"0"+j+"";
+			//	value += ""+i+"1"+j+"";
+				String name = value;
+				ClassRoom cr =  new ClassRoom();
+				cr.setName(name);
+				session.save(cr);
+			}
+		}
+		tr.commit();
+		session.close();
+	}
+	
+	@Test
 	public void addManager(){
 		try{
 			session = HibernateSessionFactory.getSession();
@@ -353,8 +373,8 @@ public class Dao {
 			t2.setId("t1002");
 			t2.setName("测试教师名字2");
 			
-			t1.setTeacherType(type);
-			t2.setTeacherType(type);
+			t1.setType(type);
+			t2.setType(type);
 			
 			session.save(type);
 			session.save(t1);
@@ -496,8 +516,8 @@ public class Dao {
 			c11.setId("ke1002");
 			c11.setName("测试课程名2");
 			
-			c1.setCourseType(type);
-			c11.setCourseType(type);
+			c1.setType(type);
+			c11.setType(type);
 			session.save(type);
 			session.save(c1);
 			session.save(c11);

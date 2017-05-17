@@ -32,7 +32,7 @@
             <column name="ADDRESS" />
         </property>
         
-        <many-to-one name="teacherType" column="typeId" class="com.edu.pojo.TeacherType" />
+        <many-to-one name="type" column="typeId" class="com.edu.pojo.TeacherType" />
         
         <set name="arrangements" inverse="true">
         	<key column="teacherId"></key>

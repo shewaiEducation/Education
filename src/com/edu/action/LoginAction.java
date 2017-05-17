@@ -1,3 +1,4 @@
+/*
 package com.edu.action;
 
 import java.io.IOException;
@@ -60,7 +61,9 @@ public class LoginAction implements SessionAware{
 		}
 		
 	}
+	
 	public void setSession(Map<String, Object> session) {
 		this.session=session;
 	}
 }
+*/

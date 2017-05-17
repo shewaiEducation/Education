@@ -14,23 +14,23 @@ import com.edu.util.HibernateSessionFactory;
  * @since 2017-05-16
  */
 public class TeacherTypeDao extends HibernateDao<TeacherType>{
-
+	
 	/**
 	 * Return all of teacher type
 	 * @return list
 	 */
 	@SuppressWarnings("unchecked")
 	public List<TeacherType> findAllTeacherType(){
-		List<TeacherType> teacherTypes = new ArrayList<TeacherType>();
+		List<TeacherType> types = new ArrayList<TeacherType>();
 		Session session = null;
 		try{
 			session = HibernateSessionFactory.getSession();
-			teacherTypes = session.getNamedQuery("findAllTeacherType").list();
+			types = session.getNamedQuery("findAllTeacherType").list();
 		}catch(Exception e){
 			throw e;
 		} finally{
 			session.close();
 		}
-		return teacherTypes;
+		return types;
 	}
 }

@@ -1,17 +1,5 @@
 package com.edu.service;
 
-<<<<<<< HEAD
-import java.io.Serializable;
-
-import com.edu.dao.StudentDao;
-import com.edu.pojo.Student;
-
-public class StudentService {
-	private StudentDao studao = new StudentDao();
-	
-	public Student getStuById(Class<Student> classz,Serializable id){
-		return studao.getStuById(classz, id);
-=======
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,10 +7,8 @@ import java.util.Date;
 
 import com.edu.dao.LoginUserDao;
 import com.edu.dao.StudentDao;
-import com.edu.dao.TeacherDao;
 import com.edu.pojo.LoginUser;
 import com.edu.pojo.Student;
-import com.edu.pojo.Teacher;
 
 /**
  * An application layer to process business logic on POJO Student.
@@ -75,6 +61,5 @@ public class StudentService {
 			e.printStackTrace();
 		}
 		return result;
->>>>>>> ce3cb433de2b20a32484f04f172d5633e6e1570c
 	}
 }

@@ -48,7 +48,7 @@ create table Course(
   CONSTRAINT UQ_COURSE_NAME UNIQUE (NAME)
   --,CONSTRAINT FK_COURSE_TYPEID FOREIGN KEY (TYPEID) REFERENCES CourseType(ID) ON DELETE SET NULL
 );
---专业开设课程
+---专业开设课程
 drop table MajorCourse;
 create table MajorCourse(
   id number(10),  --逻辑主键
@@ -60,7 +60,7 @@ create table MajorCourse(
   --,CONSTRAINT FK_MAJORCOURSE_COURSEID FOREIGN KEY (COURSEID) REFERENCES COURSE(ID) ON DELETE SET NULL,
   --CONSTRAINT FK_MAJORCOURSE_MAJORID FOREIGN KEY (MAJORID) REFERENCES MAJOR(ID) ON DELETE SET NULL
 );
---专业&课程，被选择
+--^专业&课程，被选择
 drop table MajorCourseSelected;
 create table MajorCourseSelected(
   id number(10),  --逻辑主键

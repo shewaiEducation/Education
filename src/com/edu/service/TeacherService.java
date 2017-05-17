@@ -1,33 +1,49 @@
 package com.edu.service;
 
-<<<<<<< HEAD
-import java.io.Serializable;
-
-import com.edu.dao.TeacherDao;
-=======
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.List;
 
 import com.edu.dao.LoginUserDao;
 import com.edu.dao.TeacherDao;
+import com.edu.dao.TeacherTypeDao;
 import com.edu.pojo.LoginUser;
->>>>>>> ce3cb433de2b20a32484f04f172d5633e6e1570c
 import com.edu.pojo.Teacher;
+import com.edu.pojo.TeacherType;
 
 /**
  * An application layer to process business logic on POJO Teacher.
  * @author Shr
  * @since 2017-05-16
  */
-public class TeacherService implements Service{
-<<<<<<< HEAD
-	private TeacherDao teadao = new TeacherDao();
-	public Teacher getTeaById(Class<Teacher> classz,Serializable id){
-		return teadao.getTeaById(classz, id);
-=======
+public class TeacherService {
 	
+	
+	/**
+	 * find all of teacher
+	 * @return list
+	 */
+	public List<Teacher> findAllTeacher(){
+		TeacherDao dao = new TeacherDao();
+		List<Teacher> teachers = dao.findAllTeacher();
+		for(Teacher t : teachers){
+			TeacherTypeDao tDao = new TeacherTypeDao();
+			TeacherType type = tDao.find(TeacherType.class, t.getType().getId());
+			t.setType(type);
+		}
+		return teachers;
+	}
+	
+	/**
+	 * Find all of type
+	 * @return list
+	 */
+	public List<TeacherType> findAllTeacherType(){
+		TeacherTypeDao dao = new TeacherTypeDao();
+		return dao.findAllTeacherType();
+	}
 	
 	/**
 	 * update the teacher's information
@@ -73,6 +89,5 @@ public class TeacherService implements Service{
 			e.printStackTrace();
 		}
 		return result;
->>>>>>> ce3cb433de2b20a32484f04f172d5633e6e1570c
 	}
 }

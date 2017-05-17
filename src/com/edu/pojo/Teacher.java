@@ -29,7 +29,7 @@ public class Teacher implements java.io.Serializable {
 	/** address */
 	private String address;
 	/** teacher's type */
-	private TeacherType teacherType;
+	private TeacherType type;
 	/** be arranged */
 	private Set<Arrangement> arrangements = new HashSet<Arrangement>();
 
@@ -100,12 +100,12 @@ public class Teacher implements java.io.Serializable {
 		this.address = address;
 	}
 
-	public TeacherType getTeacherType() {
-		return teacherType;
+	public TeacherType getType() {
+		return type;
 	}
 
-	public void setTeacherType(TeacherType teacherType) {
-		this.teacherType = teacherType;
+	public void setType(TeacherType type) {
+		this.type = type;
 	}
 
 	public Set<Arrangement> getArrangements() {

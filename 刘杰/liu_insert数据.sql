@@ -33,7 +33,11 @@ insert into CourseType values(seq_courseType.Nextval,'实践教学');
 select * from CourseType;
 --truncate table CourseType;
 --课程
-insert into Course values('',null,'',null,null,'');
+insert into Course values('0020010040',1,'思想道德修养与法律基础',48,3,null);
+insert into Course values('0700810010',2,'计算机科学导论',64,4,null);
+insert into Course values('0720810980',4,'可视化程序设计',54,3,null);
+insert into Course values('0700810140',2,'数据结构',72,4,null);
+insert into Course values('0700810450',3,'网络协议与编程',54,3,null);
 truncate table Course;
 select * from Course;
 --truncate table Course;
@@ -44,6 +48,12 @@ start with 1
 minvalue 0 
 maxvalue 99999 
 increment by 1;
+
+insert into MajorCourse values(seq_MajorCourse.Nextval,'0020010040','03',1);
+insert into MajorCourse values(seq_MajorCourse.Nextval,'0700810010','03',2);
+insert into MajorCourse values(seq_MajorCourse.Nextval,'0720810980','03',3);
+insert into MajorCourse values(seq_MajorCourse.Nextval,'0700810140','03',2);
+insert into MajorCourse values(seq_MajorCourse.Nextval,'0700810450','03',4);
 
 truncate table MajorCourse;
 select * from MajorCourse;
@@ -65,12 +75,32 @@ minvalue 0
 maxvalue 99 
 increment by 1;
 
+insert into TeacherType values(seq_teacherType.Nextval,'教授');
+insert into TeacherType values(seq_teacherType.Nextval,'副教授');
+insert into TeacherType values(seq_teacherType.Nextval,'讲师');
+
 truncate table TeacherType;
 select * from TeacherType;
 --教师
+insert into Teacher(id,typeId,name,idcard,Hiredate,sex) values('t1001',1,'萧峰','id1001',date'1998-06-23','男');
+insert into Teacher(id,typeId,name,idcard,Hiredate,sex) values('t1002',2,'段誉','id1002',date'1999-08-02','男');
+insert into Teacher(id,typeId,name,idcard,Hiredate,sex) values('t1003',3,'慕容复','id1003',date'2003-12-16','男');
+insert into Teacher(id,typeId,name,idcard,Hiredate,sex) values('t1004',3,'令狐冲','id1004',date'2005-03-20','男');
+insert into Teacher(id,typeId,name,idcard,Hiredate,sex) values('t1005',3,'王语嫣','id1005',date'2010-01-28','女');
+
 truncate table Teacher;
 select * from Teacher;
 --教学楼
+insert into TeachBuild values('一教学楼');
+insert into TeachBuild values('二教学楼');
+insert into TeachBuild values('三教学楼');
+insert into TeachBuild values('四教学楼');
+insert into TeachBuild values('五教学楼');
+insert into TeachBuild values('六教学楼');
+insert into TeachBuild values('七教学楼');
+insert into TeachBuild values('八教学楼');
+insert into TeachBuild values('九教学楼');
+
 truncate table TeachBuild;
 select * from TeachBuild;
 --教室

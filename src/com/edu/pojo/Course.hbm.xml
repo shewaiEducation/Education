@@ -23,7 +23,7 @@
             <column name="NOTE" />
         </property>
         
-        <many-to-one name="courseType" column="typeId" class="com.edu.pojo.CourseType"></many-to-one>
+        <many-to-one name="type" column="typeId" class="com.edu.pojo.CourseType" />
 
 		<set name="majorCourses" inverse="true">
         	<key column="courseId"></key>
@@ -46,4 +46,9 @@
         </set>
         
     </class>
+    
+    <query name="findAllCourse">
+      <![CDATA[ FROM Course ]]>
+    </query>
+    
 </hibernate-mapping>
