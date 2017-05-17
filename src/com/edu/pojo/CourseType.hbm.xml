@@ -20,4 +20,9 @@
         	<one-to-many class="com.edu.pojo.Course"/>
         </set>
     </class>
+    
+    <query name="findAllCourseType">
+      <![CDATA[ FROM CourseType ]]>
+    </query>
+    
 </hibernate-mapping>

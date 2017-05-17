@@ -4,19 +4,39 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.List;
 
 import com.edu.dao.LoginUserDao;
 import com.edu.dao.TeacherDao;
+import com.edu.dao.TeacherTypeDao;
 import com.edu.pojo.LoginUser;
 import com.edu.pojo.Teacher;
+import com.edu.pojo.TeacherType;
 
 /**
  * An application layer to process business logic on POJO Teacher.
  * @author Shr
  * @since 2017-05-16
  */
-public class TeacherService implements Service{
+public class TeacherService {
 	
+	/**
+	 * 
+	 * @return list
+	 */
+	public List<Teacher> findAllTeacher(){
+		TeacherDao dao = new TeacherDao();
+		return dao.findAllTeacher();
+	}
+	
+	/**
+	 * 
+	 * @return list
+	 */
+	public List<TeacherType> findAllTeacherType(){
+		TeacherTypeDao dao = new TeacherTypeDao();
+		return dao.findAllTeacherType();
+	}
 	
 	/**
 	 * update the teacher's information

@@ -7,10 +7,8 @@ import java.util.Date;
 
 import com.edu.dao.LoginUserDao;
 import com.edu.dao.StudentDao;
-import com.edu.dao.TeacherDao;
 import com.edu.pojo.LoginUser;
 import com.edu.pojo.Student;
-import com.edu.pojo.Teacher;
 
 /**
  * An application layer to process business logic on POJO Student.

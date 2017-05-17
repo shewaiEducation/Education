@@ -33,7 +33,11 @@ insert into CourseType values(seq_courseType.Nextval,'实践教学');
 select * from CourseType;
 --truncate table CourseType;
 --课程
-insert into Course values('',null,'',null,null,'');
+insert into Course values('0020010040',1,'思想道德修养与法律基础',48,3,null);
+insert into Course values('0700810010',2,'计算机科学导论',64,4,null);
+insert into Course values('0720810980',4,'可视化程序设计',54,3,null);
+insert into Course values('0700810140',2,'数据结构',72,4,null);
+insert into Course values('0700810450',3,'网络协议与编程',54,3,null);
 truncate table Course;
 select * from Course;
 --truncate table Course;
@@ -44,6 +48,12 @@ start with 1
 minvalue 0 
 maxvalue 99999 
 increment by 1;
+
+insert into MajorCourse values(seq_MajorCourse.Nextval,'0020010040','03',1);
+insert into MajorCourse values(seq_MajorCourse.Nextval,'0700810010','03',2);
+insert into MajorCourse values(seq_MajorCourse.Nextval,'0720810980','03',3);
+insert into MajorCourse values(seq_MajorCourse.Nextval,'0700810140','03',2);
+insert into MajorCourse values(seq_MajorCourse.Nextval,'0700810450','03',4);
 
 truncate table MajorCourse;
 select * from MajorCourse;
@@ -65,9 +75,15 @@ minvalue 0
 maxvalue 99 
 increment by 1;
 
+insert into TeacherType values(seq_teacherType.Nextval,'教授');
+insert into TeacherType values(seq_teacherType.Nextval,'副教授');
+insert into TeacherType values(seq_teacherType.Nextval,'讲师');
+
 truncate table TeacherType;
 select * from TeacherType;
 --教师
+insert into Teacher values();
+
 truncate table Teacher;
 select * from Teacher;
 --教学楼

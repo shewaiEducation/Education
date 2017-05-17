@@ -496,8 +496,8 @@ public class Dao {
 			c11.setId("ke1002");
 			c11.setName("²âÊÔ¿Î³ÌÃû2");
 			
-			c1.setCourseType(type);
-			c11.setCourseType(type);
+			c1.setType(type);
+			c11.setType(type);
 			session.save(type);
 			session.save(c1);
 			session.save(c11);

@@ -1,6 +1,5 @@
 package com.edu.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -21,7 +20,7 @@ public class CollegeDao extends HibernateDao<College>{
 	 */
 	@SuppressWarnings("unchecked")
 	public List<College> findAllCollege(){
-		List<College> colleges = new ArrayList<College>();
+		List<College> colleges = null;
 		Session session = null;
 		try{
 			session = HibernateSessionFactory.getSession();
@@ -33,4 +32,5 @@ public class CollegeDao extends HibernateDao<College>{
 		}
 		return colleges;
 	}
+	
 }

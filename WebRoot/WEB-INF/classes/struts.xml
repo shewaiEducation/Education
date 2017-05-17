@@ -11,8 +11,14 @@
 	-->
 	<constant name="struts.configuration.xml.reload" value="true"/>
 	
+	<include file="com/edu/action/struts-college.xml" />
+	<include file="com/edu/action/struts-major.xml" />
+	<include file="com/edu/action/struts-class.xml" />
+	<include file="com/edu/action/struts-course.xml" />
+	
 	<include file="com/edu/action/struts-manager.xml" />
 	<include file="com/edu/action/struts-student.xml" />
 	<include file="com/edu/action/struts-teacher.xml" />
+	
 	
 </struts>    
