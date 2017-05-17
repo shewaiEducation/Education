@@ -11,6 +11,7 @@
 	-->
 	<constant name="struts.configuration.xml.reload" value="true"/>
 	
+	<include file="com/edu/action/struts-login.xml" />
 	<include file="com/edu/action/struts-manager.xml" />
 	<include file="com/edu/action/struts-student.xml" />
 	<include file="com/edu/action/struts-teacher.xml" />

@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+.am-topbar-inverse .am-topbar-brand a{
+	color:#fff;
+	margin-top:2px;
+}
+
+.admin-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 20px;
+  z-index: 1500;
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+
+.tpl-left-nav {
+    width: 235px;
+    float: left;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+    position:fixed;
+}
+
+.tpl-header-list-ico-out-size {
+    font-size: 16px;
+    margin-top:25px;
+}
